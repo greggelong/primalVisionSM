@@ -11,13 +11,20 @@ let constraints = {
   },
   audio: false,
 };
+
+const vW = 360;
+const vH = 640;
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight); // Display is full screen
   pixelDensity(1);
 
-  // Setup video capture
-  video = createCapture(constraints);
-  video.size(width, height);
+  video = createCapture({
+    video: { facingMode: "environment", width: vW, height: vH },
+    audio: false,
+  });
+
+  video.size(vW, vH); // Force the internal logic to 360p
   video.hide();
 }
 
@@ -193,10 +200,4 @@ function drawLabel(txt, x, y) {
   // Cyan main text
   fill(0, 255, 255);
   text(txt, x, y);
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  // THIS IS THE MISSING PIECE:
-  video.size(windowWidth, windowHeight);
 }
