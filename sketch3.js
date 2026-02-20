@@ -6,8 +6,8 @@ let connectionMax = 150; // Distance for "neighbor" lines
 let constraints = {
   video: {
     facingMode: "environment", // change to "environment" for rear camera
-    width: { ideal: 320 },
-    height: { ideal: 720 },
+    //width: { ideal: 320 },
+    //height: { ideal: 780 },
   },
   audio: false,
 };
@@ -197,4 +197,6 @@ function drawLabel(txt, x, y) {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  // THIS IS THE MISSING PIECE:
+  video.size(windowWidth, windowHeight);
 }
