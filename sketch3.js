@@ -17,7 +17,7 @@ function setup() {
 
   // Setup video capture
   video = createCapture(VIDEO, constraints);
-  video.size(640, 480);
+  video.size(width, height);
   video.hide();
 }
 
