@@ -16,7 +16,7 @@ function setup() {
   pixelDensity(1);
 
   // Setup video capture
-  video = createCapture(VIDEO, constraints);
+  video = createCapture(constraints);
   video.size(width, height);
   video.hide();
 }
